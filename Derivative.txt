@@ -1,0 +1,39 @@
+//************Soumyadip Basak************//
+//*****Derivative of any function in C/C++******
+//****I used simple Definition of Derivative*******//
+#include<stdio.h>
+
+#include<math.h>
+
+#define epp 0.001//we have taken epsilon equal to 0.001....
+double f(double x)//Define function here.........
+{
+   
+    return log(x);
+
+}
+
+int main()
+
+{
+    
+    double pnt_x,df1,df2;
+
+    scanf("%lf",&pnt_x);
+
+    df1=-f(pnt_x)+f(pnt_x+epp);
+
+    df1=df1*1000;
+    df2=f(pnt_x-epp)-f(pnt_x);
+
+    df2=-df2*1000;
+
+        if(fabs(df1-df2)<=0.1)
+
+                printf("Derivative is %lf at point %.6lf",(df1+df2)/2,pnt_x);
+
+        else
+
+           printf("Derivative Does Not Exist.");
+
+}
